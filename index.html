@@ -26,24 +26,24 @@
 			</section>
 			<section>
 				<section>
-					<h2>Why is it interesting?</h2>
+					<h2 style="color:#002b36">Why is it interesting?</h2>
 				</section>
 				<section>
-					<h3>DBMS popularity by database model, January 2022</h3>
+					<h4 style="color:#1a6091">DBMS popularity by database model, January 2022</h4>
 					<img src="examples/assets/scores.png" alt="Ranking per category">
 				</section>
 				<section>
-					<h3>DB-Engines Ranking</h3>
+					<h4 style="color:#1a6091">DB-Engines Ranking</h4>
 					<img src="examples/assets/dbenginesranking.png" alt="DB-Engines Ranking">
 				</section>
 				<section>
-					<h3>Customers & use cases of MongoDB</h3>
+					<h4 style="color:#1a6091">Customers & use cases of MongoDB</h4>
 					<img src="examples/assets/customers.png" alt="Customers">
 				</section>
 			</section>
 			<section>
 				<section>
-					<h2>What is MongoDB?</h2>
+					<h2 style="color:#002b36">What is MongoDB?</h2>
 					<p>
 						<span class="fragment">MongoDB is an open source platform written in C++ and has a very easy
 							setup environment. It is a cross-platform, document-oriented and non-structured database.
@@ -53,11 +53,11 @@
 			</section>
 			<section>
 				<section>
-					<h3>How data is stored?</h3>
+					<h2 style="color:#002b36">How data is stored?</h2>
 					<img src="examples/assets/documentstore.png" alt="Document store">
 				</section>
 				<section data-auto-animate>
-					<h4 data-id="code-title">Document example</h4>
+					<h4 style="color:#1a6091" data-id="code-title">Document example</h4>
 					<pre data-id="code-animation"  style="font-size: 14px;"><code class="hljs language-json" data-trim>
 							{
 								_id: ObjectId(7bf78ad8902c)
@@ -83,13 +83,13 @@
 			</section>
 			<section>
 				<section>
-					<h3>CRUD operatons</h3>
+					<h2 style="color:#002b36">CRUD operatons</h2>
 					<img src="examples/assets/crud.png" alt="CRUD operations">
 				</section>
 				<section>
-					<h4>Create</h4>
-					<p style="color:#1a6091">db.collection.insertOne()</p>
-					<p style="color:#1a6091">db.collection.insertMany()</p>
+					<h4 style="color:#1a6091">Create</h4>
+					<p>db.collection.insertOne()</p>
+					<p>db.collection.insertMany()</p>
 
 					<pre class="fragment fade-up" style="font-size: 14px;"><code class="hljs language-json" data-trim data-line-numbers>
 						db.examples.insertMany([{
@@ -115,8 +115,8 @@
 
 				</section>
 				<section>
-					<h4>Read</h4>
-					<p style="color:#1a6091">db.collection.find()</p>
+					<h4 style="color:#1a6091">Read</h4>
+					<p>db.collection.find()</p>
 					<pre class="fragment fade-up" style="font-size: 14px;"><code class="hljs language-json" data-trim data-line-numbers>
 						db.examples.find({
 							status: "A",
@@ -132,9 +132,9 @@
 
 				</section>
 				<section>
-					<h4>Update</h4>
-					<p style="color:#1a6091">db.collection.updateOne()</p>
-					<p style="color:#1a6091">db.collection.updateany()</p>
+					<h4 style="color:#1a6091">Update</h4>
+					<p>db.collection.updateOne()</p>
+					<p>db.collection.updateany()</p>
 
 					<pre class="fragment fade-up" style="font-size: 14px;"><code class="hljs language-json" data-trim data-line-numbers>
 						db.examples.updateMany({
@@ -154,9 +154,9 @@
 
 				</section>
 				<section>
-					<h4>Delete</h4>
-					<p style="color:#1a6091">db.collection.deleteOne()</p>
-					<p style="color:#1a6091">db.collection.deleteMany()</p>
+					<h4 style="color:#1a6091">Delete</h4>
+					<p>db.collection.deleteOne()</p>
+					<p>db.collection.deleteMany()</p>
 
 					<pre class="fragment fade-up" style="font-size: 14px;"><code class="hljs language-json" data-trim data-line-numbers>
 						db.examples.deleteOne({
@@ -168,19 +168,19 @@
 			</section>
 			<section>
 				<section>
-					<h3>MongoDB features</h3>
+					<h2 style="color:#002b36">MongoDB features</h2>
 					<img src="examples/assets/features.png" alt="Features">
 				</section>
 				<section>
-					<h4>Replication</h4>
+					<h4 style="color:#1a6091">Replication</h4>
 					<img src="examples/assets/replication.png" alt="Replication">
 				</section>
 				<section>
-					<h4>Sharding</h4>
+					<h4 style="color:#1a6091">Sharding</h4>
 					<img src="examples/assets/sharding.png" alt="Sharding">
 				</section>
 				<section>
-					<h4>Aggregation</h4>
+					<h4 style="color:#1a6091">Aggregation</h4>
 					<img src="examples/assets/aggregation.png" alt="Aggregation">
 					<pre data-id="code-animation"  style="font-size: 14px;"><code class="hljs language-json" data-trim>
 						db.orders_detail.aggregate([{
@@ -200,10 +200,10 @@
 			</section>
 			<section>
 				<section>
-					<h4> To use or not to use?</h4>
+					<h2 style="color:#002b36"> To use or not to use?</h2>
 				</section>
 				<section>
-					<h4>Advantages</h4>
+					<h4 style="color:#1a6091">Advantages</h4>
 					<p class="fragment fade-in-then-semi-out">Flexible Database</p>
 					<p class="fragment fade-in-then-semi-out">Sharding</p>
 					<p class="fragment fade-in-then-semi-out">High speed</p>
@@ -215,7 +215,7 @@
 					<p class="fragment fade-in-then-semi-out">MongoDB Compass & MongoDB Atlas</p>
 				</section>
 				<section>
-					<h4>Disadvantages</h4>
+					<h4 style="color:#1a6091">Disadvantages</h4>
 					<p class="fragment fade-in-then-semi-out">Transactions</p>
 					<p class="fragment fade-in-then-semi-out">Joins</p>
 					<p class="fragment fade-in-then-semi-out">Limited Data Size and Nesting</p>
@@ -224,7 +224,7 @@
 				</section>
 			</section>
 			<section>
-				<h2>Good for:</h2>
+				<h3 style="color:#1a6091">Good for:</h3>
 				<ul>
 					<li>E-commerce product catalog.</li>
 					<li>Blogs and content management.</li>
@@ -238,7 +238,7 @@
 			
 			</section>
 			<section>
-				<h2>Not good for:</h2>
+				<h3 style="color:#1a6091">Not good for:</h3>
 				<ul>
 					<li>Highly transactional systems </li>
 					<li>The data model is designed up front</li>
@@ -247,7 +247,7 @@
 			
 			</section>
 			<section>
-				<h2>Thanks for your attention!</h2>
+				<h2 style="color:#002b36">Thanks for your attention!</h2>
 			</section>
 		</div>
 	</div>
