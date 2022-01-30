@@ -1,40 +1,258 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+	<title>MongoDB - Yuliya Khrushchova</title>
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<img src="examples/assets/mongodb.png" alt="MongoDb">
+				<p>
+					<small>by <a href="https://github.com/juliachruszczowaH/presentation">Yuliya Khrushchova</a></small>
+				</p>
+			</section>
+			<section>
+				<section>
+					<h2>Why is it interesting?</h2>
+				</section>
+				<section>
+					<h3>DBMS popularity by database model, January 2022</h3>
+					<img src="examples/assets/scores.png" alt="Ranking per category">
+				</section>
+				<section>
+					<h3>DB-Engines Ranking</h3>
+					<img src="examples/assets/dbenginesranking.png" alt="DB-Engines Ranking">
+				</section>
+				<section>
+					<h3>Customers & use cases of MongoDB</h3>
+					<img src="examples/assets/customers.png" alt="Customers">
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>What is MongoDB?</h2>
+					<p>
+						<span class="fragment">MongoDB is an open source platform written in C++ and has a very easy
+							setup environment. It is a cross-platform, document-oriented and non-structured database.
+							MongoDB provides high performance, high availability, and auto-scaling.</span>
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>How data is stored?</h3>
+					<img src="examples/assets/documentstore.png" alt="Document store">
+				</section>
+				<section data-auto-animate>
+					<h4 data-id="code-title">Document example</h4>
+					<pre data-id="code-animation"  style="font-size: 14px;"><code class="hljs language-json" data-trim>
+							{
+								_id: ObjectId(7bf78ad8902c)
+								title: 'MongoDB', 
+								description: 'Simple MongoDB Database',
+								by: 'proselyte',
+								url: 'proselyte.net',
+								quantity: 150,
+								tags: ['proselyte tutorials', 'NoSQL', 'MongoDB'], 
+								developers: [	
+								   {
+									  developer:'developer1',
+									  specialty: 'Java Developer'
+								   },
+								   {
+									  developer: 'developer2'
+									  specialty: 'C++ Developer'
+									  }
+								]
+							 }	 
+						</code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>CRUD operatons</h3>
+					<img src="examples/assets/crud.png" alt="CRUD operations">
+				</section>
+				<section>
+					<h4>Create</h4>
+					<p style="color:#1a6091">db.collection.insertOne()</p>
+					<p style="color:#1a6091">db.collection.insertMany()</p>
+
+					<pre class="fragment fade-up" style="font-size: 14px;"><code class="hljs language-json" data-trim data-line-numbers>
+						db.examples.insertMany([{
+							item: "mats",
+							qty: 85,
+							tags: ["blue"],
+							size: {
+								h: 29.9,
+								w: 39.5,
+								uom: "cm"
+							}
+						}, {
+							item: "mouse",
+							qty: 25,
+							tags: ["gel", "grey"],
+							size: {
+								h: 27,
+								w: 29.85,
+								uom: "cm"
+							}
+						}])	 
+							</code></pre>
+
+				</section>
+				<section>
+					<h4>Read</h4>
+					<p style="color:#1a6091">db.collection.find()</p>
+					<pre class="fragment fade-up" style="font-size: 14px;"><code class="hljs language-json" data-trim data-line-numbers>
+						db.examples.find({
+							status: "A",
+							$or: [{
+								qty: {
+									$lt: 30
+								}
+							}, {
+								item: /^p/
+							}]
+						})	 
+							</code></pre>
+
+				</section>
+				<section>
+					<h4>Update</h4>
+					<p style="color:#1a6091">db.collection.updateOne()</p>
+					<p style="color:#1a6091">db.collection.updateany()</p>
+
+					<pre class="fragment fade-up" style="font-size: 14px;"><code class="hljs language-json" data-trim data-line-numbers>
+						db.examples.updateMany({
+							"qty": {
+								$gt: 50
+							}
+						}, {
+							$set: {
+								"size.uom": "in",
+								status: "P"
+							},
+							$currentDate: {
+								lastModified: true
+							}
+						})	 
+							</code></pre>
+
+				</section>
+				<section>
+					<h4>Delete</h4>
+					<p style="color:#1a6091">db.collection.deleteOne()</p>
+					<p style="color:#1a6091">db.collection.deleteMany()</p>
+
+					<pre class="fragment fade-up" style="font-size: 14px;"><code class="hljs language-json" data-trim data-line-numbers>
+						db.examples.deleteOne({
+							status: "D"
+						})	 
+							</code></pre>
+
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>MongoDB features</h3>
+					<img src="examples/assets/features.png" alt="Features">
+				</section>
+				<section>
+					<h4>Replication</h4>
+					<img src="examples/assets/replication.png" alt="Replication">
+				</section>
+				<section>
+					<h4>Sharding</h4>
+					<img src="examples/assets/sharding.png" alt="Sharding">
+				</section>
+				<section>
+					<h4>Aggregation</h4>
+					<img src="examples/assets/aggregation.png" alt="Aggregation">
+				</section>
+			</section>
+			<section>
+				<section>
+					<h4> To use or not to use?</h4>
+				</section>
+				<section>
+					<h4>Advantages</h4>
+					<p class="fragment fade-in-then-semi-out">Flexible Database</p>
+					<p class="fragment fade-in-then-semi-out">Sharding</p>
+					<p class="fragment fade-in-then-semi-out">High speed</p>
+					<p class="fragment fade-in-then-semi-out">High Availability</p>
+					<p class="fragment fade-in-then-semi-out">Scalability</p>
+					<p class="fragment fade-in-then-semi-out">Ad-hoc Query Support</p>
+					<p class="fragment fade-in-then-semi-out">Easy Environment Setup</p>
+					<p class="fragment fade-in-then-semi-out">Full Technical Support</p>
+					<p class="fragment fade-in-then-semi-out">MongoDB Compass & MongoDB Atlas</p>
+				</section>
+				<section>
+					<h4>Disadvantages</h4>
+					<p class="fragment fade-in-then-semi-out">Transactions</p>
+					<p class="fragment fade-in-then-semi-out">Joins</p>
+					<p class="fragment fade-in-then-semi-out">Limited Data Size and Nesting</p>
+					<p class="fragment fade-in-then-semi-out">Duplicates</p>
+					<p class="fragment fade-in-then-semi-out">High Memory Usage</p>
+				</section>
+			</section>
+			<section>
+				<h2>Good for:</h2>
+				<ul>
+					<li>E-commerce product catalog.</li>
+					<li>Blogs and content management.</li>
+					<li>Real-time analytics and high-speed logging, caching, and high scalability.</li>
+					<li>Configuration management.</li>
+					<li>Maintaining location-based data — Geospatial data.</li>
+					<li>Mobile and social networking sites.</li>
+					<li>Evolving data requirements.</li>
+					<li>Loosely coupled objectives — the design may change by over time.</li>
+				</ul>
+			
+			</section>
+			<section>
+				<h2>Not good for:</h2>
+				<ul>
+					<li>Highly transactional systems </li>
+					<li>The data model is designed up front</li>
+					<li>Tightly coupled systems</li>
+					</ul>
+			
+			</section>
+			<section>
+				<h2>Thanks for your attention!</h2>
+			</section>
 		</div>
+	</div>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
 </html>
