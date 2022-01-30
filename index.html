@@ -182,6 +182,20 @@
 				<section>
 					<h4>Aggregation</h4>
 					<img src="examples/assets/aggregation.png" alt="Aggregation">
+					<pre data-id="code-animation"  style="font-size: 14px;"><code class="hljs language-json" data-trim>
+						db.orders_detail.aggregate([{
+							$match: {
+								status: "A"
+							}
+						}, {
+							$group: {
+								_id: "$customer_id",
+								total: {
+									$sum: "$item_price"
+								}
+							}
+						}])	 
+					</code></pre>
 				</section>
 			</section>
 			<section>
