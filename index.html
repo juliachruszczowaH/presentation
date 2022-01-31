@@ -31,14 +31,25 @@
 				<section>
 					<h4 style="color:#1a6091">DBMS popularity by database model, January 2022</h4>
 					<img src="examples/assets/scores.png" alt="Ranking per category">
+					<aside class="notes">
+						Though Relational database management systems take the lead, NoSQL db rate is growing. Document
+						stores get 10% of popularity.
+					</aside>
 				</section>
 				<section>
 					<h4 style="color:#1a6091">DB-Engines Ranking</h4>
 					<img src="examples/assets/dbenginesranking.png" alt="DB-Engines Ranking">
+					<aside class="notes">
+						On the Db-Engines Ranking mongoDB is on the 5th place among all database management systems.
+						And it is the best place among No-SQL databases.
+					</aside>
 				</section>
 				<section>
 					<h4 style="color:#1a6091">Customers & use cases of MongoDB</h4>
 					<img src="examples/assets/customers.png" alt="Customers">
+					<aside class="notes">
+						The list of it’s customers is impressive & contains highly successful and well known companies.
+					</aside>
 				</section>
 			</section>
 			<section>
@@ -55,10 +66,18 @@
 				<section>
 					<h2 style="color:#002b36">How data is stored?</h2>
 					<img src="examples/assets/documentstore.png" alt="Document store">
+					<aside class="notes">
+						MongoDB works on concept of collection and document. A database provides a container for storing
+						and organizing data. Each database contains one or more collections, and each collection
+						contains zero or more documents.
+						A database can contain multiple collections, but a collection cannot span multiple databases.
+						Likewise, a collection can contain multiple documents, but a document cannot span multiple
+						collections.
+					</aside>
 				</section>
 				<section data-auto-animate>
 					<h4 style="color:#1a6091" data-id="code-title">Document example</h4>
-					<pre data-id="code-animation"  style="font-size: 14px;"><code class="hljs language-json" data-trim>
+					<pre data-id="code-animation" style="font-size: 14px;"><code class="hljs language-json" data-trim>
 							{
 								_id: ObjectId(7bf78ad8902c)
 								title: 'MongoDB', 
@@ -79,12 +98,25 @@
 								]
 							 }	 
 						</code></pre>
+					<aside class="notes">
+						Documents contain dynamic schema. It means documents in a collection can contain different set
+						of fields and there is no type limitation for the fields. We can add any type of data in a
+						field. Document is a set of key-value pairs.
+						Documents are represented in binary encoded format called BSON (similar to JSON). This BSON
+						implementation supports embedding objects and arrays within other objects and arrays.
+					</aside>
 				</section>
 			</section>
 			<section>
 				<section>
 					<h2 style="color:#002b36">CRUD operatons</h2>
 					<img src="examples/assets/crud.png" alt="CRUD operations">
+					<aside class="notes">
+						MongoDB does not use SQL language, it uses CRUD operations. Operations for Create/Read/Update
+						and Delete. Further you can see these operations. If we compare the sql queries with simple crud
+						operations, we will see, that for the people with javascript knowledge, crud operations are more
+						user-friendly.
+					</aside>
 				</section>
 				<section>
 					<h4 style="color:#1a6091">Create</h4>
@@ -112,7 +144,6 @@
 							}
 						}])	 
 							</code></pre>
-
 				</section>
 				<section>
 					<h4 style="color:#1a6091">Read</h4>
@@ -170,19 +201,48 @@
 				<section>
 					<h2 style="color:#002b36">MongoDB features</h2>
 					<img src="examples/assets/features.png" alt="Features">
+					<aside class="notes">
+						Looking at how data is stored, we’ve already touched some of features:
+						- Document oriented database
+						- MongoDB is a schema-less database. That means we can have any type of data in a separate
+						document. This thing gives us flexibility and a freedom to store data of different types.
+						- Ad-hoc Queries - MongoDB supports field, range queries, regular expression searches. Queries
+						can return specific fields of documents and also include user-defined JavaScript functions.
+					</aside>
 				</section>
 				<section>
 					<h4 style="color:#1a6091">Replication</h4>
 					<img src="examples/assets/replication.png" alt="Replication">
+					<aside class="notes">
+						Replication is the process of synchronizing data across multiple servers. MongoDB achieves
+						replication by the use of replica set. A replica set is a group of mongod instances that host
+						the same data set. In a replica, one node is primary node that receives all write operations.
+						All other instances, such as secondaries, apply operations from the primary so that they have
+						the same data set. Replica set can have only one primary node. Client application always
+						interact with the primary node and the primary node then replicates the data to the secondary
+						nodes.
+					</aside>
 				</section>
 				<section>
 					<h4 style="color:#1a6091">Sharding</h4>
 					<img src="examples/assets/sharding.png" alt="Sharding">
+					<aside class="notes">
+						The major and very common problem with a growing web application is scaling. To overcome this,
+						MongoDB has come up with Sharding feature. It is one of the greatest key features of MongoDB.
+						Sharding is a method for distributing data across multiple machines. MongoDB uses sharding to
+						support deployments with very large data sets and high throughput operations. Sharding makes it
+						possible to provide horizontal scalability. Horizontal scaling (referred as sharding also) is a
+						complicated process and is done using several machines or shards. Each shard holds a portion of
+						the data and functions as a separate database. The collection of several shards together is what
+						forms a single logical database. The operations are performed through services called query
+						routers, App server and configuration servers which decide which operation needs to be routed to
+						which shard.
+					</aside>
 				</section>
 				<section>
 					<h4 style="color:#1a6091">Aggregation</h4>
 					<img src="examples/assets/aggregation.png" alt="Aggregation">
-					<pre data-id="code-animation"  style="font-size: 14px;"><code class="hljs language-json" data-trim>
+					<pre data-id="code-animation" style="font-size: 14px;"><code class="hljs language-json" data-trim>
 						db.orders_detail.aggregate([{
 							$match: {
 								status: "A"
@@ -196,6 +256,11 @@
 							}
 						}])	 
 					</code></pre>
+					<aside class="notes">
+						Aggregations operations process data records and return computed results. Aggregation operations
+						group values from multiple documents together, and can perform a variety of operations on the
+						grouped data to return a single result.
+					</aside>
 				</section>
 			</section>
 			<section>
@@ -213,6 +278,34 @@
 					<p class="fragment fade-in-then-semi-out">Easy Environment Setup</p>
 					<p class="fragment fade-in-then-semi-out">Full Technical Support</p>
 					<p class="fragment fade-in-then-semi-out">MongoDB Compass & MongoDB Atlas</p>
+					<aside class="notes">
+						a. Flexible Database
+						We know that MongoDB is a schema-less database. That means we can have any type of data in a
+						separate document. This thing gives us flexibility and a freedom to store data of different
+						types.
+						b. Sharding
+						We can store a large data by distributing it to several servers connected to the application. If
+						a server cannot handle such a big data then there will be no failure condition. The term we can
+						use here is “auto-sharding”.
+						c. High Speed
+						MongoDB is a document-oriented database. It is easy to access documents by indexing. Hence, it
+						provides fast query response. The speed of MongoDB is 100 times faster than the relational
+						database.
+						d. High Availability
+						MongoDB has features like replication and gridFS. These features help to increase data
+						availability in MongoDB. Hence the performance is very high.
+						e. Scalability
+						A great advantage of MongoDB is that it is a horizontally scalable database. When you have to
+						handle a large data, you can distribute it to several machines.
+						f. Ad-hoc Query Support
+						MongoDB has a very advanced feature for ad hoc queries. This is why we don’t need to worry about
+						fore coming queries coming in the future.
+						g. Easy Environment Setup
+						It is easier to setup MongoDB then RDBMS. It also provides JavaScript client for queries.
+						h. Full Technical Support
+						MongoDB Inc. provides professional support to its clients. If there is any problem, you can
+						directly reach a MongoDB client support system.
+					</aside>
 				</section>
 				<section>
 					<h4 style="color:#1a6091">Disadvantages</h4>
@@ -221,6 +314,33 @@
 					<p class="fragment fade-in-then-semi-out">Limited Data Size and Nesting</p>
 					<p class="fragment fade-in-then-semi-out">Duplicates</p>
 					<p class="fragment fade-in-then-semi-out">High Memory Usage</p>
+					<aside class="notes">
+						- Transactions
+						One of the downsides of MongoDB is that it doesn’t support transactions. Though fewer and fewer
+						applications are requiring transactions, there are still some that need transactions in order to
+						update multiple documents/collections. If that’s a necessary function for your team, MongoDB
+						should not be used. There’s potential for data corruption.
+						- Joins
+						Joining documents in MongoDB is no easy task. Pulling data from several collections requires a
+						number of queries, which will inevitably lead to messy code and long turn-around times.
+						- Indexing
+						MongoDB offers high-speed performance with the right indexes. In case if the indexing is
+						implemented incorrectly or has any discrepancies, MongoDB will perform at a very low speed.
+						Fixing the errors in the indexes would also consume time. This is another one of the major
+						limitations of MongoDB.
+						- Limited Data Size and Nesting
+						MongoDB allows a limited size of only 16 MB for a document. Performance nesting for documents is
+						also limited to only 100 levels.
+						- Duplicates
+						Another one of the major limitations of MongoDB is the duplication of data. The limitation makes
+						it difficult to handle data sets as the relations are not defined well.
+						Eventually, the duplication of data may lead to corruption.
+						- High Memory Usage
+						MongoDB requires a high amount of storage due to the lack of joins functionalities which lead to
+						the duplication of data. There is an increase in data redundancy which takes up unnecessary
+						space in the memory.
+
+					</aside>
 				</section>
 			</section>
 			<section>
@@ -235,7 +355,7 @@
 					<li>Evolving data requirements.</li>
 					<li>Loosely coupled objectives — the design may change by over time.</li>
 				</ul>
-			
+
 			</section>
 			<section>
 				<h3 style="color:#1a6091">Not good for:</h3>
@@ -243,8 +363,8 @@
 					<li>Highly transactional systems </li>
 					<li>The data model is designed up front</li>
 					<li>Tightly coupled systems</li>
-					</ul>
-			
+				</ul>
+
 			</section>
 			<section>
 				<h2 style="color:#002b36">Thanks for your attention!</h2>
